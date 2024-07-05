@@ -4,8 +4,8 @@ import Header from "../lib/header/components/header";
 function WeatherUi() {
 	return (
 		<>
-			<div className="ui-container">
-				<div className="ui-header-container">
+			<div className="ui-container" data-testid="ui-container">
+				<div className="ui-header-container" data-testid="header-ui">
 					<Header />
 				</div>
 			</div>
