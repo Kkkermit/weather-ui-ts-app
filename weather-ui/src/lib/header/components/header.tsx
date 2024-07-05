@@ -7,7 +7,7 @@ function Header() {
 				<div className="header-inner-container">
 					<header className="header">
 						<h1 className="header-title" data-testid="header-title">
-							Weather App
+							Weather-ui
 						</h1>
 					</header>
 				</div>
