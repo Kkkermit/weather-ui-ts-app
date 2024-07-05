@@ -6,7 +6,7 @@ import Background from "./lib/background/components/background";
 function App() {
 	return (
 		<>
-			<div className="container">
+			<div className="container" data-testid="weather-ui">
 				<Background />
 				<Router>
 					<Routes>
