@@ -1,5 +1,5 @@
 import "../styles/weather-ui.css";
-import Header from "../lib/header/components/header";
+import Header from "../lib/header/components/header.tsx";
 
 function WeatherUi() {
 	return (
