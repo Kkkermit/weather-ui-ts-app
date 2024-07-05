@@ -1,8 +1,13 @@
+import "../styles/weather-ui.css";
+import Header from "../lib/header/components/header";
+
 function WeatherUi() {
 	return (
 		<>
-			<div>
-				<h1>Weather UI</h1>
+			<div className="ui-container">
+				<div className="ui-header-container">
+					<Header />
+				</div>
 			</div>
 		</>
 	);
