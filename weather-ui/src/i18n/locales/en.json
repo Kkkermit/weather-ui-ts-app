@@ -13,7 +13,7 @@
 		"sunrise": "Sunrise",
 		"sunset": "Sunset",
 		"errors": {
-			"fetchingData": "Error Fetching Data",
+			"fetchingData": "Error fetching data",
 			"unableToFetchData": "Unable to fetch data from the API",
 			"unableToFindLocation": "Unable to search location. Please check spelling and try again."
 		}
