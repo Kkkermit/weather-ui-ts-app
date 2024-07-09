@@ -4,5 +4,18 @@
 	},
 	"sidebar": {
 		"title": "Búsquedas recientes"
+	},
+	"weather": {
+		"title": "Introducir ubicación",
+		"search": "Buscar",
+		"temperature": "Rango de temperatura",
+		"humidity": "Humedad",
+		"sunrise": "Amanecer",
+		"sunset": "Atardecer",
+		"errors": {
+			"fetchingData": "Error al obtener datos",
+			"unableToFetchData": "No se pueden obtener datos de la API",
+			"unableToFindLocation": "No se puede buscar la ubicación. Verifique la ortografía y vuelva a intentarlo."
+		}
 	}
 }

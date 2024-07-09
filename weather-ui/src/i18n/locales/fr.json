@@ -4,5 +4,18 @@
 	},
 	"sidebar": {
 		"title": "Recherches récentes"
+	},
+	"weather": {
+		"title": "Entrez l'emplacement",
+		"search": "Chercher",
+		"temperature": "Écart de température",
+		"humidity": "Humidité",
+		"sunrise": "Lever du soleil",
+		"sunset": "Coucher de soleil",
+		"errors": {
+			"fetchingData": "Erreur lors de la récupération des données",
+			"unableToFetchData": "Impossible de récupérer les données de l'API",
+			"unableToFindLocation": "Impossible de rechercher l'emplacement. Veuillez vérifier l'orthographe et réessayer."
+		}
 	}
 }

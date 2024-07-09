@@ -4,5 +4,18 @@
 	},
 	"sidebar": {
 		"title": "Recent Searches"
+	},
+	"weather": {
+		"title": "Enter location",
+		"search": "Search",
+		"temperature": "Temperature range",
+		"humidity": "Humidity",
+		"sunrise": "Sunrise",
+		"sunset": "Sunset",
+		"errors": {
+			"fetchingData": "Error Fetching Data",
+			"unableToFetchData": "Unable to fetch data from the API",
+			"unableToFindLocation": "Unable to search location. Please check spelling and try again."
+		}
 	}
 }
