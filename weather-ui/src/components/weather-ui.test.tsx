@@ -14,4 +14,8 @@ describe("WeatherUi", () => {
 		const headerUi = screen.getByTestId("header-ui");
 		expect(headerUi).toBeInTheDocument();
 	});
+	it("should render the sidebar ui", () => {
+		const sidebarUi = screen.getByTestId("sidebar-ui");
+		expect(sidebarUi).toBeInTheDocument();
+	});
 });

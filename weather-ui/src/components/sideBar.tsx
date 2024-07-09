@@ -7,7 +7,9 @@ const Sidebar: React.FC = () => {
 		<>
 			<div className="sidebar" data-testid="sidebar">
 				<div className="sidebar-inner-container">
-					<h1 className="sidebar-header-text">{i18n.t("sidebar.title")}</h1>
+					<h1 className="sidebar-header-text" data-testid="sidebar-title">
+						{i18n.t("sidebar.title")}
+					</h1>
 				</div>
 			</div>
 		</>
