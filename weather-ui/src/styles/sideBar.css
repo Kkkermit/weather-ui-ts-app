@@ -29,6 +29,7 @@
 	display: grid;
 	align-items: center;
 	justify-content: left;
+	margin: 0;
 }
 
 .sidebar-list {

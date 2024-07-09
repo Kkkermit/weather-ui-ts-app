@@ -2,12 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../../styles/weather-data-ui.css";
 import config from "../../config/config.json";
-import { WeatherData } from "./weather-data";
+import { WeatherData, WeatherDataUIProps, setApiParams } from "./weather-data";
 import { i18n } from "../../i18n/index";
-
-interface WeatherDataUIProps {
-	onNewSearch: (search: string) => void;
-}
 
 const WeatherDataUI: React.FC<WeatherDataUIProps> = ({ onNewSearch }) => {
 	const [inputLocation, setInputLocation] = useState("");
@@ -41,8 +37,7 @@ const WeatherDataUI: React.FC<WeatherDataUIProps> = ({ onNewSearch }) => {
 			const response = await axios.get<WeatherData>(`${config.apiUrl}`, {
 				params: {
 					q: location,
-					appid: import.meta.env.VITE_REACT_APP_API_KEY || ``,
-					units: "metric",
+					...setApiParams,
 				},
 			});
 
@@ -59,8 +54,7 @@ const WeatherDataUI: React.FC<WeatherDataUIProps> = ({ onNewSearch }) => {
 				params: {
 					lat,
 					lon,
-					appid: import.meta.env.VITE_REACT_APP_API_KEY || ``,
-					units: "metric",
+					...setApiParams,
 				},
 			});
 
