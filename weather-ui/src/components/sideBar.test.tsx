@@ -5,7 +5,7 @@ import { i18n } from "../i18n/index";
 
 describe("SideBar", () => {
 	beforeEach(() => {
-		render(<SideBar />);
+		render(<SideBar recentSearches={[]} />);
 	});
 	it("should render the sidebar", () => {
 		const sidebar = screen.getByTestId("sidebar");
