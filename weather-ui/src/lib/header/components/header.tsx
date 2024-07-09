@@ -1,4 +1,5 @@
 import "../styles/header.css";
+import { i18n } from "../../../i18n/index";
 
 function Header() {
 	return (
@@ -7,7 +8,7 @@ function Header() {
 				<div className="header-inner-container">
 					<header className="header">
 						<h1 className="header-title" data-testid="header-title">
-							Weather-ui
+							{i18n.t("header.title")}
 						</h1>
 					</header>
 				</div>

@@ -1,6 +1,7 @@
 .header-container {
 	margin: 0 20px;
 	padding: 20px;
+	margin-left: 280px;
 }
 
 .header {
@@ -17,5 +18,5 @@
 	text-align: center;
 	font-size: 2.5em;
 	font-weight: 600;
-	color: #000000;
+	color: #ffffff;
 }

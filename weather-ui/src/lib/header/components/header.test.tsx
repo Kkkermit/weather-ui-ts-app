@@ -16,7 +16,7 @@ describe("Header", () => {
 	});
 
 	it("should render the header title with the text 'Weather App'", () => {
-		const headerText = screen.getByText("Weather App");
+		const headerText = screen.getByText("Weather-ui");
 		expect(headerText).toBeInTheDocument();
 	});
 });
