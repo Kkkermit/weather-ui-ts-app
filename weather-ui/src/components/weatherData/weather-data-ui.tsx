@@ -26,9 +26,14 @@ const WeatherDataUI: React.FC<WeatherDataUIProps> = ({ onNewSearch }) => {
 		} else if (coords) {
 			fetchWeatherDataByCoords(coords.lat, coords.lon);
 		} else {
-			navigator.geolocation.getCurrentPosition((position) => {
-				setCoords({ lat: position.coords.latitude, lon: position.coords.longitude });
-			});
+			navigator.geolocation.getCurrentPosition(
+				(position) => {
+					setCoords({ lat: position.coords.latitude, lon: position.coords.longitude });
+				},
+				() => {
+					fetchWeatherData("London");
+				},
+			);
 		}
 	}, [submittedLocation, coords]);
 

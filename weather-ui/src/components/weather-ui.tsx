@@ -18,7 +18,7 @@ const WeatherUi: React.FC = () => {
 	}, []);
 
 	const handleNewSearch = (search: string) => {
-		const newSearches = [search, ...recentSearches].slice(0, 5);
+		const newSearches = [search, ...recentSearches].slice(0, 8);
 		setRecentSearches(newSearches);
 		localStorage.setItem("recentSearches", JSON.stringify(newSearches));
 	};
