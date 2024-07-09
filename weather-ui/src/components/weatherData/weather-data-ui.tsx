@@ -2,40 +2,73 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../../styles/weather-data-ui.css";
 import config from "../../config/config.json";
+import { WeatherData } from "./weather-data";
 
-interface WeatherData {
-	name: string;
-	weather: { description: string }[];
-	main: { temp: number; temp_min: number; temp_max: number };
-	sys: { sunrise: number; sunset: number };
+interface WeatherDataUIProps {
+	onNewSearch: (search: string) => void;
 }
 
-const WeatherDataUI: React.FC = () => {
+const WeatherDataUI: React.FC<WeatherDataUIProps> = ({ onNewSearch }) => {
 	const [inputLocation, setInputLocation] = useState("");
-	const [submittedLocation, setSubmittedLocation] = useState("London");
+	const [submittedLocation, setSubmittedLocation] = useState("");
 	const [weatherData, setWeatherData] = useState<WeatherData | null>(null);
 	const [error, setError] = useState<string | null>(null);
+	const [recentSearches, setRecentSearches] = useState<string[]>([]);
+	const [coords, setCoords] = useState<{ lat: number; lon: number } | null>(null);
 
 	useEffect(() => {
-		const fetchWeatherData = async () => {
-			try {
-				const response = await axios.get<WeatherData>(`${config.apiUrl}`, {
-					params: {
-						q: submittedLocation,
-						appid: import.meta.env.VITE_REACT_APP_API_KEY || ``,
-						units: "metric",
-					},
-				});
+		const loadedSearches = localStorage.getItem("recentSearches");
+		if (loadedSearches) {
+			setRecentSearches(JSON.parse(loadedSearches));
+		}
+	}, []);
 
-				setWeatherData(response.data);
-				setError(null);
-			} catch (error) {
-				setError("Unable to search location. Please check spelling and try again.");
-			}
-		};
+	useEffect(() => {
+		if (submittedLocation !== "") {
+			fetchWeatherData(submittedLocation);
+		} else if (coords) {
+			fetchWeatherDataByCoords(coords.lat, coords.lon);
+		} else {
+			navigator.geolocation.getCurrentPosition((position) => {
+				setCoords({ lat: position.coords.latitude, lon: position.coords.longitude });
+			});
+		}
+	}, [submittedLocation, coords]);
 
-		fetchWeatherData();
-	}, [submittedLocation]);
+	const fetchWeatherData = async (location: string) => {
+		try {
+			const response = await axios.get<WeatherData>(`${config.apiUrl}`, {
+				params: {
+					q: location,
+					appid: import.meta.env.VITE_REACT_APP_API_KEY || ``,
+					units: "metric",
+				},
+			});
+
+			setWeatherData(response.data);
+			setError(null);
+		} catch (error) {
+			setError("Unable to search location. Please check spelling and try again.");
+		}
+	};
+
+	const fetchWeatherDataByCoords = async (lat: number, lon: number) => {
+		try {
+			const response = await axios.get<WeatherData>(`${config.apiUrl}`, {
+				params: {
+					lat,
+					lon,
+					appid: import.meta.env.VITE_REACT_APP_API_KEY || ``,
+					units: "metric",
+				},
+			});
+
+			setWeatherData(response.data);
+			setError(null);
+		} catch (error) {
+			setError("Unable to get location. Please check your device settings.");
+		}
+	};
 
 	const handleLocationChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		setInputLocation(event.target.value);
@@ -44,6 +77,11 @@ const WeatherDataUI: React.FC = () => {
 	const handleSubmit = (event: React.FormEvent) => {
 		event.preventDefault();
 		setSubmittedLocation(inputLocation);
+
+		const newSearches = [inputLocation, ...recentSearches].slice(0, 5);
+		setRecentSearches(newSearches);
+		localStorage.setItem("recentSearches", JSON.stringify(newSearches));
+		onNewSearch(inputLocation);
 	};
 
 	if (!weatherData)
