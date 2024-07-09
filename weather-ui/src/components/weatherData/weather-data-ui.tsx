@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../../styles/weather-data-ui.css";
+import config from "../../config/config.json";
 
 interface WeatherData {
 	name: string;
@@ -15,10 +16,10 @@ const WeatherDataUI: React.FC = () => {
 
 	useEffect(() => {
 		const fetchWeatherData = async () => {
-			const response = await axios.get<WeatherData>("http://api.openweathermap.org/data/2.5/weather", {
+			const response = await axios.get<WeatherData>(`${config.apiUrl}`, {
 				params: {
 					q: submittedLocation,
-					appid: "79f34889d4272cd404d963997ffaf29a",
+					appid: import.meta.env.VITE_REACT_APP_API_KEY || ``,
 					units: "metric",
 				},
 			});
@@ -38,7 +39,15 @@ const WeatherDataUI: React.FC = () => {
 		setSubmittedLocation(inputLocation);
 	};
 
-	if (!weatherData) return <div>Loading...</div>;
+	if (!weatherData)
+		return (
+			<div className="weather-data-ui-container-error">
+				<div className="weather-data-ui-error">
+					<h1 className="weather-data-error-text">Error Fetching Data</h1>
+					<p className="weather-data-error-para">Please check you've entered the correct location</p>
+				</div>
+			</div>
+		);
 
 	return (
 		<>
