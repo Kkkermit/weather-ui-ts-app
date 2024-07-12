@@ -7,7 +7,9 @@
 	},
 	"weather": {
 		"title": "Introducir ubicación",
+		"placeholder": "Ubicación",
 		"search": "Buscar",
+		"weatherIn": "Tiempo en",
 		"temperature": "Rango de temperatura",
 		"humidity": "Humedad",
 		"sunrise": "Amanecer",

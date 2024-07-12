@@ -7,7 +7,9 @@
 	},
 	"weather": {
 		"title": "Enter location",
+		"placeholder": "Location",
 		"search": "Search",
+		"weatherIn": "Weather in",
 		"temperature": "Temperature range",
 		"humidity": "Humidity",
 		"sunrise": "Sunrise",

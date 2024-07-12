@@ -7,7 +7,9 @@
 	},
 	"weather": {
 		"title": "Entrez l'emplacement",
+		"placeholder": "Emplacement",
 		"search": "Chercher",
+		"weatherIn": "Météo à",
 		"temperature": "Écart de température",
 		"humidity": "Humidité",
 		"sunrise": "Lever du soleil",

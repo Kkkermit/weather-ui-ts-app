@@ -94,7 +94,7 @@ const WeatherDataUI: React.FC<WeatherDataUIProps> = ({ onNewSearch }) => {
 									type="text"
 									value={inputLocation}
 									onChange={handleLocationChange}
-									placeholder="Location"
+									placeholder={i18n.t("weather.placeholder")}
 									data-testid="input-field"
 								/>
 								<button className="weather-data-search-button" type="submit" data-testid="submit-button">
@@ -110,8 +110,10 @@ const WeatherDataUI: React.FC<WeatherDataUIProps> = ({ onNewSearch }) => {
 						</article>
 					) : (
 						<article className="weather-data-article">
-							<h2 className="weather-data-header">{weatherData.name}</h2>
-							<h3 className="weather-data-header">{weatherData.weather[0].description}</h3>
+							<h2 className="weather-data-header-text">
+								{i18n.t("weather.weatherIn")} {weatherData.name}
+							</h2>
+							<h3 className="weather-data-header-temp">{weatherData.weather[0].description}</h3>
 							<p className="weather-data-para">{weatherData.main.temp}°C</p>
 							<p className="weather-data-para">
 								{i18n.t("weather.temperature")}: {weatherData.main.temp_min}°C - {weatherData.main.temp_max}°C

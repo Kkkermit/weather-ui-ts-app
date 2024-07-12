@@ -52,6 +52,18 @@ describe("i18n translation", () => {
 		expect(frTitle).toBe("Entrez l'emplacement");
 	});
 
+	it("should translate the weather search placeholder text", () => {
+		i18n.changeLanguage("en");
+		const enTitle = i18n.t("weather.placeholder");
+		expect(enTitle).toBe("Location");
+		i18n.changeLanguage("es");
+		const esTitle = i18n.t("weather.placeholder");
+		expect(esTitle).toBe("Ubicación");
+		i18n.changeLanguage("fr");
+		const frTitle = i18n.t("weather.placeholder");
+		expect(frTitle).toBe("Emplacement");
+	});
+
 	it("should translate the weather search button text", () => {
 		i18n.changeLanguage("en");
 		const enTitle = i18n.t("weather.search");
@@ -62,6 +74,18 @@ describe("i18n translation", () => {
 		i18n.changeLanguage("fr");
 		const frTitle = i18n.t("weather.search");
 		expect(frTitle).toBe("Chercher");
+	});
+
+	it("should translate the weather in text", () => {
+		i18n.changeLanguage("en");
+		const enTitle = i18n.t("weather.weatherIn");
+		expect(enTitle).toBe("Weather in");
+		i18n.changeLanguage("es");
+		const esTitle = i18n.t("weather.weatherIn");
+		expect(esTitle).toBe("Tiempo en");
+		i18n.changeLanguage("fr");
+		const frTitle = i18n.t("weather.weatherIn");
+		expect(frTitle).toBe("Météo à");
 	});
 
 	it("should translate the weather temperature text", () => {
