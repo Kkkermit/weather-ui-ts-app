@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import "../../styles/weather-data-ui.css";
-import config from "../../config/config.json";
-import { WeatherData, WeatherDataUIProps, setApiParams } from "./weather-data";
+import { WeatherData, WeatherDataUIProps, fetchWeatherDataFromApi, fetchWeatherDataFromCordsApi } from "./weather-data";
 import { i18n } from "../../i18n/index";
 
 const WeatherDataUI: React.FC<WeatherDataUIProps> = ({ onNewSearch }) => {
@@ -21,6 +19,8 @@ const WeatherDataUI: React.FC<WeatherDataUIProps> = ({ onNewSearch }) => {
 	}, []);
 
 	useEffect(() => {
+		const setDefaultLocation = "London";
+
 		if (submittedLocation !== "") {
 			fetchWeatherData(submittedLocation);
 		} else if (coords) {
@@ -31,7 +31,7 @@ const WeatherDataUI: React.FC<WeatherDataUIProps> = ({ onNewSearch }) => {
 					setCoords({ lat: position.coords.latitude, lon: position.coords.longitude });
 				},
 				() => {
-					fetchWeatherData("London");
+					fetchWeatherData(setDefaultLocation);
 				},
 			);
 		}
@@ -39,14 +39,8 @@ const WeatherDataUI: React.FC<WeatherDataUIProps> = ({ onNewSearch }) => {
 
 	const fetchWeatherData = async (location: string) => {
 		try {
-			const response = await axios.get<WeatherData>(`${config.apiUrl}`, {
-				params: {
-					q: location,
-					...setApiParams,
-				},
-			});
-
-			setWeatherData(response.data);
+			const data = await fetchWeatherDataFromApi(location);
+			setWeatherData(data);
 			setError(null);
 		} catch (error) {
 			setError(i18n.t("weather.errors.unableToFindLocation"));
@@ -55,15 +49,8 @@ const WeatherDataUI: React.FC<WeatherDataUIProps> = ({ onNewSearch }) => {
 
 	const fetchWeatherDataByCoords = async (lat: number, lon: number) => {
 		try {
-			const response = await axios.get<WeatherData>(`${config.apiUrl}`, {
-				params: {
-					lat,
-					lon,
-					...setApiParams,
-				},
-			});
-
-			setWeatherData(response.data);
+			const data = await fetchWeatherDataFromCordsApi(lat, lon);
+			setWeatherData(data);
 			setError(null);
 		} catch (error) {
 			setError(i18n.t("weather.errors.unableToFindLocation"));
@@ -96,7 +83,7 @@ const WeatherDataUI: React.FC<WeatherDataUIProps> = ({ onNewSearch }) => {
 
 	return (
 		<>
-			<div className="weather-data-ui-container">
+			<div className="weather-data-ui-container" data-testid="ui-container">
 				<div className="weather-data-ui">
 					<section className="weather-data">
 						<div className="weather-data-input-container">
@@ -108,8 +95,9 @@ const WeatherDataUI: React.FC<WeatherDataUIProps> = ({ onNewSearch }) => {
 									value={inputLocation}
 									onChange={handleLocationChange}
 									placeholder="Location"
+									data-testid="input-field"
 								/>
-								<button className="weather-data-search-button" type="submit">
+								<button className="weather-data-search-button" type="submit" data-testid="submit-button">
 									{i18n.t("weather.search")}
 								</button>
 							</form>
