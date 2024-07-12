@@ -24,10 +24,6 @@
 	color: #ffffff;
 }
 
-.weather-data-para {
-	font-size: 1.2em;
-}
-
 .weather-data-ui-container-error {
 	margin: 0 20px;
 	padding: 20px;
@@ -67,7 +63,7 @@
 	display: grid;
 	align-items: center;
 	justify-content: center;
-	margin: 2rem;
+	margin-top: 5rem;
 	border: 2px solid white;
 	padding: 20px;
 	padding-bottom: 70px;
@@ -156,20 +152,86 @@
 .weather-data-header-text {
 	text-align: center;
 	font-size: 2.5em;
-	font-weight: 600;
+	font-weight: 900;
 	color: #ffffff;
-	text-decoration: underline 3px;
-	text-underline-offset: 15px;
+	position: relative;
 }
 
-.weather-data-header-temp {
+.weather-data-header-text::after {
+	content: "";
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	bottom: -50px;
+	width: 500px;
+	height: 3px;
+	background-color: #ffffff;
+	padding: 1px;
+	border-radius: 300px;
+}
+
+.weather-data-header-description {
 	text-align: center;
-	font-size: 2.5em;
-	font-weight: 400;
+	font-size: 2em;
+	font-weight: 900;
 	color: #ffffff;
+	position: relative;
+	padding: 10px;
+}
+
+.weather-data-header-description::after {
+	content: "";
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	bottom: -30px;
+	width: 500px;
+	height: 3px;
+	background-color: #ffffff;
+	padding: 1px;
+	border-radius: 300px;
+}
+
+.weather-icon-container {
+	display: grid;
+	align-items: center;
+	justify-content: center;
+	padding: 20px;
+	border: 7px solid white;
+	border-radius: 300px;
+	margin-top: 4rem;
+}
+
+.weather-icon {
+	border-radius: 50%;
+	width: 400px;
+	height: 400px;
+	object-fit: cover;
+	transition: transform ease-in-out 0.3s;
+}
+
+.weather-icon:hover {
+	transform: scale(1.1);
 }
 
 .weather-data-para {
 	font-size: 1.5em;
 	color: #ffffff;
+	text-align: center;
+	font-weight: 900;
+	position: relative;
+	margin-bottom: 5rem;
+}
+
+.weather-data-para::after {
+	content: "";
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	bottom: -50px;
+	width: 500px;
+	height: 3px;
+	background-color: #ffffff;
+	padding: 1px;
+	border-radius: 300px;
 }

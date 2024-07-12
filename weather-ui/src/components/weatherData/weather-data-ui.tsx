@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../../styles/weather-data-ui.css";
 import { WeatherData, WeatherDataUIProps, fetchWeatherDataFromApi, fetchWeatherDataFromCordsApi } from "./weather-data";
 import { i18n } from "../../i18n/index";
+import { getWeatherIcon } from "./weather-icons";
 
 const WeatherDataUI: React.FC<WeatherDataUIProps> = ({ onNewSearch }) => {
 	const [inputLocation, setInputLocation] = useState("");
@@ -11,6 +12,8 @@ const WeatherDataUI: React.FC<WeatherDataUIProps> = ({ onNewSearch }) => {
 	const [recentSearches, setRecentSearches] = useState<string[]>([]);
 	const [coords, setCoords] = useState<{ lat: number; lon: number } | null>(null);
 
+	const setDefaultLocation = "London";
+
 	useEffect(() => {
 		const loadedSearches = localStorage.getItem("recentSearches");
 		if (loadedSearches) {
@@ -19,8 +22,6 @@ const WeatherDataUI: React.FC<WeatherDataUIProps> = ({ onNewSearch }) => {
 	}, []);
 
 	useEffect(() => {
-		const setDefaultLocation = "London";
-
 		if (submittedLocation !== "") {
 			fetchWeatherData(submittedLocation);
 		} else if (coords) {
@@ -36,6 +37,21 @@ const WeatherDataUI: React.FC<WeatherDataUIProps> = ({ onNewSearch }) => {
 			);
 		}
 	}, [submittedLocation, coords]);
+
+	useEffect(() => {
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(
+				(_position) => {},
+				(error) => {
+					if (error.code === error.PERMISSION_DENIED) {
+						setInputLocation(setDefaultLocation);
+					}
+				},
+			);
+		} else {
+			setInputLocation(setDefaultLocation);
+		}
+	}, []);
 
 	const fetchWeatherData = async (location: string) => {
 		try {
@@ -113,8 +129,17 @@ const WeatherDataUI: React.FC<WeatherDataUIProps> = ({ onNewSearch }) => {
 							<h2 className="weather-data-header-text">
 								{i18n.t("weather.weatherIn")} {weatherData.name}
 							</h2>
-							<h3 className="weather-data-header-temp">{weatherData.weather[0].description}</h3>
-							<p className="weather-data-para">{weatherData.main.temp}°C</p>
+							<div className="weather-icon-container">
+								<img
+									className="weather-icon"
+									src={getWeatherIcon(weatherData.weather[0].description)}
+									alt="Weather Icon"
+								/>
+							</div>
+							<h3 className="weather-data-header-description"> - {weatherData.weather[0].description}- </h3>
+							<p className="weather-data-para">
+								{i18n.t("weather.temp")}: {weatherData.main.temp}°C
+							</p>
 							<p className="weather-data-para">
 								{i18n.t("weather.temperature")}: {weatherData.main.temp_min}°C - {weatherData.main.temp_max}°C
 							</p>

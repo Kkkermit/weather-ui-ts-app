@@ -35,6 +35,7 @@
 
 body {
 	animation: fadeIn 1s ease-in-out forwards;
+	scroll-behavior: smooth;
 }
 
 @keyframes fadeIn {

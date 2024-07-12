@@ -88,6 +88,18 @@ describe("i18n translation", () => {
 		expect(frTitle).toBe("Météo à");
 	});
 
+	it("should translate the weather temp text", () => {
+		i18n.changeLanguage("en");
+		const enTitle = i18n.t("weather.temp");
+		expect(enTitle).toBe("Temperature");
+		i18n.changeLanguage("es");
+		const esTitle = i18n.t("weather.temp");
+		expect(esTitle).toBe("Temperatura");
+		i18n.changeLanguage("fr");
+		const frTitle = i18n.t("weather.temp");
+		expect(frTitle).toBe("Température");
+	});
+
 	it("should translate the weather temperature text", () => {
 		i18n.changeLanguage("en");
 		const enTitle = i18n.t("weather.temperature");
