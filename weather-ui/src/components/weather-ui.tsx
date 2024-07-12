@@ -9,6 +9,12 @@ const WeatherUi: React.FC = () => {
 		const loadedSearches = localStorage.getItem("recentSearches");
 		return loadedSearches ? JSON.parse(loadedSearches) : [];
 	});
+	const [locationEnabled, setLocationEnabled] = useState<boolean>(false);
+
+	navigator.geolocation.getCurrentPosition(
+		() => setLocationEnabled(true),
+		() => setLocationEnabled(false),
+	);
 
 	useEffect(() => {
 		const loadedSearches = localStorage.getItem("recentSearches");
@@ -30,7 +36,7 @@ const WeatherUi: React.FC = () => {
 					<Header />
 				</div>
 				<div className="ui-sidebar-container" data-testid="sidebar-ui">
-					<Sidebar recentSearches={recentSearches} />
+					<Sidebar recentSearches={recentSearches} locationEnabled={locationEnabled} />
 				</div>
 				<div className="ui-weather-data-container" data-testid="weather-data-ui">
 					<WeatherDataUI onNewSearch={handleNewSearch} />

@@ -40,3 +40,37 @@
 	text-transform: capitalize;
 	letter-spacing: 1px;
 }
+
+.location-enabled-container {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 2rem;
+}
+
+.location-enabled-container::after {
+	content: "";
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	top: -10px;
+	width: 150px;
+	height: 3px;
+	background-color: #ffffff;
+	padding: 1px;
+	border-radius: 300px;
+}
+
+.location-enabled-logo {
+	margin-left: 20px;
+}
+
+.location-enabled-message {
+	text-align: center;
+	font-size: 1.5em;
+	font-weight: 900;
+	color: #ffffff;
+	position: relative;
+	padding: 10px;
+}

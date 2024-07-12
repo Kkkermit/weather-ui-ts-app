@@ -3,7 +3,8 @@
 		"title": "Interfaz de usuario del tiempo"
 	},
 	"sidebar": {
-		"title": "Búsquedas recientes"
+		"title": "Búsquedas recientes",
+		"locationEnabled": "Los servicios de ubicación han sido habilitados"
 	},
 	"weather": {
 		"title": "Introducir ubicación",

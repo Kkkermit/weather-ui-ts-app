@@ -1,12 +1,10 @@
 import React from "react";
 import "../styles/sideBar.css";
 import { i18n } from "../i18n/index";
+import locationLogo from "../assets/location-logo.svg";
+import { SidebarProps } from "./sideBar-props";
 
-interface SidebarProps {
-	recentSearches: string[];
-}
-
-const Sidebar: React.FC<SidebarProps> = ({ recentSearches }) => {
+const Sidebar: React.FC<SidebarProps> = ({ recentSearches, locationEnabled }) => {
 	return (
 		<>
 			<div className="sidebar" data-testid="sidebar">
@@ -21,6 +19,13 @@ const Sidebar: React.FC<SidebarProps> = ({ recentSearches }) => {
 							</li>
 						))}
 					</ul>
+					{locationEnabled && (
+						<div className="location-enabled-container">
+							{" "}
+							<img className="location-enabled-logo" src={locationLogo} alt="Location Logo" />{" "}
+							<p className="location-enabled-message">{i18n.t("sidebar.locationEnabled")}</p>{" "}
+						</div>
+					)}
 				</div>
 			</div>
 		</>

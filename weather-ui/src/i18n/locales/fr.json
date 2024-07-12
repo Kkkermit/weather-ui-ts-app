@@ -3,7 +3,8 @@
 		"title": "Interface météo"
 	},
 	"sidebar": {
-		"title": "Recherches récentes"
+		"title": "Recherches récentes",
+		"locationEnabled": "Les services de localisation ont été activés"
 	},
 	"weather": {
 		"title": "Entrez l'emplacement",

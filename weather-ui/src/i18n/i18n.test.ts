@@ -40,6 +40,18 @@ describe("i18n translation", () => {
 		expect(frTitle).toBe("Recherches récentes");
 	});
 
+	it("should translate the sidebar location enabled text", () => {
+		i18n.changeLanguage("en");
+		const enTitle = i18n.t("sidebar.locationEnabled");
+		expect(enTitle).toBe("Location services has been enabled");
+		i18n.changeLanguage("es");
+		const esTitle = i18n.t("sidebar.locationEnabled");
+		expect(esTitle).toBe("Los servicios de ubicación han sido habilitados");
+		i18n.changeLanguage("fr");
+		const frTitle = i18n.t("sidebar.locationEnabled");
+		expect(frTitle).toBe("Les services de localisation ont été activés");
+	});
+
 	it("should translate the weather title", () => {
 		i18n.changeLanguage("en");
 		const enTitle = i18n.t("weather.title");

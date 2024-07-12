@@ -3,7 +3,8 @@
 		"title": "Weather-ui"
 	},
 	"sidebar": {
-		"title": "Recent Searches"
+		"title": "Recent Searches",
+		"locationEnabled": "Location services has been enabled"
 	},
 	"weather": {
 		"title": "Enter location",
