@@ -8,6 +8,17 @@ const Sidebar: React.FC<SidebarProps> = ({ recentSearches, locationEnabled }) =>
 	return (
 		<>
 			<div className="sidebar" data-testid="sidebar">
+				{locationEnabled && (
+					<div className="location-enabled-container">
+						<img
+							className="location-enabled-logo"
+							src={locationLogo}
+							alt="Location Logo"
+							data-testid="location-enabled-logo"
+						/>
+						<p className="location-enabled-message">{i18n.t("sidebar.locationEnabled")}</p>
+					</div>
+				)}
 				<div className="sidebar-inner-container">
 					<h1 className="sidebar-header-text" data-testid="sidebar-title">
 						{i18n.t("sidebar.title")}
@@ -19,13 +30,7 @@ const Sidebar: React.FC<SidebarProps> = ({ recentSearches, locationEnabled }) =>
 							</li>
 						))}
 					</ul>
-					{locationEnabled && (
-						<div className="location-enabled-container">
-							{" "}
-							<img className="location-enabled-logo" src={locationLogo} alt="Location Logo" />{" "}
-							<p className="location-enabled-message">{i18n.t("sidebar.locationEnabled")}</p>{" "}
-						</div>
-					)}
+					<div className="sidebar-blank-space">{""}</div>
 				</div>
 			</div>
 		</>

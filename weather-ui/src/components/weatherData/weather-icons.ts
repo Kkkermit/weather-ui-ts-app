@@ -19,5 +19,9 @@ export const getWeatherIcon = (description: string) => {
 		return "https://imgs.search.brave.com/4Xjx5cAcOIatvoPMKyK0I9gRfTEQsXX4diY1tV8MkCM/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvOTIx/ODM4Njk0L3Bob3Rv/L3JvdWdoLXNlYS1h/bmQtcmFpbi1kcm9w/cy5qcGc_cz02MTJ4/NjEyJnc9MCZrPTIw/JmM9Vm11Zm4zUHls/R0d4Y1QyS2ZKZldU/MnpncGJkZTJMemRm/bmpHVGxsdlkzdz0";
 	} else if (description === "sunny") {
 		return "https://imgs.search.brave.com/Ar0EI0CQUqsE971286UMPHMDHjJb7CLXgcIJY4hb02Y/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTEz/NTM3ODMwNi9waG90/by9zdW5ueS1kYXku/anBnP3M9NjEyeDYx/MiZ3PTAmaz0yMCZj/PV9wQWxESm9SVktK/WXQ2OHJyY1NqNVdV/Z2p2OGp1LVFnWFpZ/dUdkcE50eGc9";
+	} else if (description === "scattered clouds") {
+		return "https://imgs.search.brave.com/Z8Rf7v-YhFi7ba2QhRNrduEjGfZ-YkbEDIaLjVWqKdM/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9jZG4t/d29yZHByZXNzLWlu/Zm8uZnV0dXJlbGVh/cm4uY29tL2luZm8v/d3AtY29udGVudC91/cGxvYWRzL2M3M2E2/YWI3LTU3YmMtNDZl/NS1hMTU1LWY4NWU4/Y2NhZTc0MC03Njh4/NTEyLmpwZw";
+	} else if (description === "light intensity shower rain") {
+		return "https://imgs.search.brave.com/nVbhbwqSW0XCHc9aECj2rRCYmqmD6UYCmSlQePXrH3U/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9zN2Qy/LnNjZW5lNy5jb20v/aXMvaW1hZ2UvVFdD/TmV3cy9jYV9sYV9y/YWluX2dldHR5aW1h/Z2VzLTk0OTEzMDk4/anBn.jpeg";
 	}
 };
