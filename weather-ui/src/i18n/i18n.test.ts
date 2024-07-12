@@ -52,6 +52,18 @@ describe("i18n translation", () => {
 		expect(frTitle).toBe("Les services de localisation ont été activés");
 	});
 
+	it("should translate the footer text", () => {
+		i18n.changeLanguage("en");
+		const enTitle = i18n.t("footer.footerMessage");
+		expect(enTitle).toBe("Made with ❤️ by Josh");
+		i18n.changeLanguage("es");
+		const esTitle = i18n.t("footer.footerMessage");
+		expect(esTitle).toBe("Hecho con ❤️ por Josh");
+		i18n.changeLanguage("fr");
+		const frTitle = i18n.t("footer.footerMessage");
+		expect(frTitle).toBe("Fait avec ❤️ par Josh");
+	});
+
 	it("should translate the weather title", () => {
 		i18n.changeLanguage("en");
 		const enTitle = i18n.t("weather.title");

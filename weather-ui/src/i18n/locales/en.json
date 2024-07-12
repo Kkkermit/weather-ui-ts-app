@@ -6,6 +6,9 @@
 		"title": "Recent Searches",
 		"locationEnabled": "Location services has been enabled"
 	},
+	"footer": {
+		"footerMessage": "Made with ❤️ by Josh"
+	},
 	"weather": {
 		"title": "Enter location",
 		"placeholder": "Location",

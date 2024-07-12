@@ -6,6 +6,9 @@
 		"title": "Recherches récentes",
 		"locationEnabled": "Les services de localisation ont été activés"
 	},
+	"footer": {
+		"footerMessage": "Fait avec ❤️ par Josh"
+	},
 	"weather": {
 		"title": "Entrez l'emplacement",
 		"placeholder": "Emplacement",

@@ -6,6 +6,9 @@
 		"title": "Búsquedas recientes",
 		"locationEnabled": "Los servicios de ubicación han sido habilitados"
 	},
+	"footer": {
+		"footerMessage": "Hecho con ❤️ por Josh"
+	},
 	"weather": {
 		"title": "Introducir ubicación",
 		"placeholder": "Ubicación",
