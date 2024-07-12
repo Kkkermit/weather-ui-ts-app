@@ -12,6 +12,7 @@
 	overflow: auto;
 	padding: 20px;
 	margin-top: 27px;
+	overflow-x: hidden;
 }
 
 .location-enabled-container {
@@ -101,7 +102,43 @@
 	position: absolute;
 	left: 50%;
 	transform: translateX(-50%);
-	top: 20px;
+	top: -34px;
+	width: 150px;
+	height: 4px;
+	background-color: #f1ac08;
+	padding: 1px;
+	border-radius: 300px;
+}
+
+.footer-container {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	height: 10%;
+	width: 200px;
+	overflow: auto;
+	padding: 20px;
+	overflow-x: hidden;
+	text-align: center;
+}
+
+.footer {
+	color: #ffffff;
+	font-weight: 800;
+	font-size: 1em;
+	margin-top: 1rem;
+}
+
+.sidebar-blank-space-footer {
+	position: relative;
+}
+
+.sidebar-blank-space-footer::after {
+	content: "";
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	top: 34px;
 	width: 150px;
 	height: 4px;
 	background-color: #f1ac08;

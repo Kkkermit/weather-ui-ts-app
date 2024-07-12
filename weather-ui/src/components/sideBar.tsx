@@ -30,7 +30,13 @@ const Sidebar: React.FC<SidebarProps> = ({ recentSearches, locationEnabled }) =>
 							</li>
 						))}
 					</ul>
-					<div className="sidebar-blank-space">{""}</div>
+					<div className="footer-container">
+						<div className="footer-inner-container">
+							<div className="sidebar-blank-space">{""}</div>
+							<footer className="footer">Made with ❤️ by Josh</footer>
+							<div className="sidebar-blank-space-footer">{""}</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</>

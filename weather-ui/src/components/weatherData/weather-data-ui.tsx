@@ -81,7 +81,7 @@ const WeatherDataUI: React.FC<WeatherDataUIProps> = ({ onNewSearch }) => {
 		event.preventDefault();
 		setSubmittedLocation(inputLocation);
 
-		const newSearches = [inputLocation, ...recentSearches].slice(0, 8);
+		const newSearches = [inputLocation, ...recentSearches].slice(0, 12);
 		setRecentSearches(newSearches);
 		localStorage.setItem("recentSearches", JSON.stringify(newSearches));
 		onNewSearch(inputLocation);
