@@ -217,12 +217,15 @@ const WeatherDataUI: React.FC<WeatherDataUIProps> = ({ onNewSearch }) => {
 									</p>
 								</article>
 							</section>
-							<section className="future weather">
+							<section className="future-weather">
 								<article className="weather-future-data">
 									<div className="weather-future-container">
 										<div className="weather-future-inner-container">
 											<div className="weather-future-text">
 												<h1 className="weather-future-heading-text">Weather Forecast</h1>
+												<p className="weather-future-para-text">
+													Weather forecast for the next 5 days in {weatherData.name}
+												</p>
 											</div>
 											<div className="weather-forecast-data-container">
 												{Array.isArray(forecastData) &&
