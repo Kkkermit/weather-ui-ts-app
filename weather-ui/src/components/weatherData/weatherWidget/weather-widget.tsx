@@ -6,8 +6,9 @@ declare global {
 
 import { useEffect } from "react";
 import { weatherWidgetParams } from "./weather-widget-params";
+import { WeatherWidgetProps } from "./weather-widget-props";
 
-function WeatherWidget({ cityId }: { cityId: number }) {
+function WeatherWidget({ cityId }: WeatherWidgetProps) {
 	useEffect(() => {
 		const d3Script = document.createElement("script");
 		d3Script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/d3.min.js";

@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "../../styles/weather-data-ui.css";
 import {
-	WeatherDataUIProps,
 	fetchForecastData,
 	fetchWeatherDataFromApi,
 	fetchWeatherDataFromCordsApi,
 	fetchWeatherForecastFromCoordsApi,
 } from "./weather-data";
+import { WeatherDataUIProps } from "./weather-data-props";
 import { ForecastData, WeatherData } from "./weather-data-interface";
 import { i18n } from "../../i18n/index";
 import { getWeatherIcon } from "./weather-icons";
@@ -21,6 +21,7 @@ const WeatherDataUI: React.FC<WeatherDataUIProps> = ({ onNewSearch }) => {
 	const [recentSearches, setRecentSearches] = useState<string[]>([]);
 	const [coords, setCoords] = useState<{ lat: number; lon: number } | null>(null);
 	const [forecastData, setForecastData] = useState<ForecastData[]>([]);
+	const [cityId, setCityId] = useState<number | null>(null);
 
 	const setDefaultLocation = "London";
 
@@ -83,6 +84,12 @@ const WeatherDataUI: React.FC<WeatherDataUIProps> = ({ onNewSearch }) => {
 			setInputLocation(setDefaultLocation);
 		}
 	}, []);
+
+	useEffect(() => {
+		if (weatherData && weatherData.id) {
+			setCityId(weatherData.id);
+		}
+	}, [weatherData]);
 
 	// Fetch weather data function
 	const fetchWeatherData = async (location: string) => {
@@ -261,7 +268,7 @@ const WeatherDataUI: React.FC<WeatherDataUIProps> = ({ onNewSearch }) => {
 									<p className="weather-overview-para-text">Overview of the weather in {weatherData.name}</p>
 								</div>
 								<div className="weather-overview">
-									<WeatherWidget cityId={weatherData.id} />
+									<WeatherWidget cityId={cityId} />
 								</div>
 							</div>
 						</div>
