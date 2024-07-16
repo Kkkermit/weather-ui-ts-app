@@ -1,15 +1,11 @@
 import axios from "axios";
 import config from "../../config/config.json";
 import { ForecastData, WeatherData } from "./weather-data-interface";
+import { setApiParams } from "./api/api-params";
 
 export interface WeatherDataUIProps {
 	onNewSearch: (search: string) => void;
 }
-
-export const setApiParams = {
-	appid: import.meta.env.VITE_REACT_APP_API_KEY || ``,
-	units: "metric",
-};
 
 export const fetchWeatherDataFromApi = async (location: string) => {
 	const response = await axios.get<WeatherData>(`${config.apiUrl}`, {
