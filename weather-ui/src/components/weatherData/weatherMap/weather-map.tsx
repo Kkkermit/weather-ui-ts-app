@@ -36,7 +36,7 @@ function WeatherMap({ lat, lon }: { lat: number; lon: number }) {
 		};
 	}, [lat, lon]);
 
-	return <div ref={mapRef} style={{ height: "500px", width: "1000px" }} />;
+	return <div data-testid="weather-map-div" ref={mapRef} style={{ height: "500px", width: "1000px" }} />;
 }
 
 export default WeatherMap;
