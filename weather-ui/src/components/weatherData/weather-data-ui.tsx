@@ -10,6 +10,7 @@ import {
 import { ForecastData, WeatherData } from "./weather-data-interface";
 import { i18n } from "../../i18n/index";
 import { getWeatherIcon } from "./weather-icons";
+import WeatherMap from "./weatherMap/weather-map";
 
 const WeatherDataUI: React.FC<WeatherDataUIProps> = ({ onNewSearch }) => {
 	const [inputLocation, setInputLocation] = useState("");
@@ -227,19 +228,23 @@ const WeatherDataUI: React.FC<WeatherDataUIProps> = ({ onNewSearch }) => {
 													Weather forecast for the next 5 days in {weatherData.name}
 												</p>
 											</div>
-											<div className="weather-forecast-data-container">
-												{Array.isArray(forecastData) &&
-													forecastData.map((forecast, index) => (
-														<div className="weather-forecast-data" key={index}>
-															<p className="weather-forecast-para">
-																Date: {new Date(forecast.dt * 1000).toLocaleDateString()}
-															</p>
-															<p className="weather-forecast-para">Time: {forecast.dt_txt.split(" ")[1].slice(0, 5)}</p>
-															<p className="weather-forecast-para">Temperature: {forecast.main.temp}°C</p>
-															<p className="weather-forecast-para">Description: {forecast.weather[0].description}</p>
-															<br />
-														</div>
-													))}
+											<div className="weather-future-data-container">
+												<div className="weather-forecast-data-container">
+													{Array.isArray(forecastData) &&
+														forecastData.map((forecast, index) => (
+															<div className="weather-forecast-data" key={index}>
+																<p className="weather-forecast-para">
+																	Date: {new Date(forecast.dt * 1000).toLocaleDateString()}
+																</p>
+																<p className="weather-forecast-para">
+																	Time: {forecast.dt_txt.split(" ")[1].slice(0, 5)}
+																</p>
+																<p className="weather-forecast-para">Temperature: {forecast.main.temp}°C</p>
+																<p className="weather-forecast-para">Description: {forecast.weather[0].description}</p>
+																<br />
+															</div>
+														))}
+												</div>
 											</div>
 										</div>
 									</div>
@@ -247,6 +252,17 @@ const WeatherDataUI: React.FC<WeatherDataUIProps> = ({ onNewSearch }) => {
 							</section>
 						</>
 					)}
+					<section className="weather-map-section">
+						<div className="weather-map-container">
+							<div className="weather-map-inner-container">
+								<div className="weather-map-text">
+									<h1 className="weather-map-heading-text">Weather Map</h1>
+									<p className="weather-map-para-text">Map showing rain density across the world</p>
+								</div>
+								<div className="weather-map">{coords && <WeatherMap lat={coords.lat} lon={coords.lon} />}</div>
+							</div>
+						</div>
+					</section>
 				</div>
 			</div>
 		</>

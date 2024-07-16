@@ -1,0 +1,6 @@
+{
+	"openStreetMap": "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+	"apiWeatherMap": "https://tile.openweathermap.org/map/{layer}/{z}/{x}/{y}.png?appid={appid}",
+	"apiUrl": "http://api.openweathermap.org/data/2.5/weather",
+	"apiForecastUrl": "http://api.openweathermap.org/data/2.5/forecast"
+}

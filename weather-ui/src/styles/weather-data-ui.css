@@ -260,6 +260,12 @@
 	position: relative;
 }
 
+.weather-future-data-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
 .weather-forecast-data-container {
 	display: flex;
 	justify-content: flex-start;
@@ -271,10 +277,11 @@
 	gap: 50px;
 	margin: 0 0;
 	padding: 25px 15px;
-	padding-bottom: 35px;
+	padding-bottom: 5px;
 	transition: 300ms;
 	width: 800px;
 	margin-bottom: 5rem;
+	margin-top: 3rem;
 }
 
 .weather-forecast-data-container::-webkit-scrollbar {
@@ -307,4 +314,42 @@
 	font-weight: 900;
 	position: relative;
 	margin-bottom: 5rem;
+}
+
+.weather-map-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 5rem;
+	margin-bottom: 5rem;
+}
+
+.weather-map-text {
+	text-align: center;
+	padding: 10px;
+	position: relative;
+	border: 1px solid transparent;
+	background-color: rgba(255, 255, 255, 0.5);
+	backdrop-filter: blur(0.5px);
+	border-radius: 5px;
+	margin-bottom: 5rem;
+}
+
+.weather-map-heading-text {
+	font-size: 2.5em;
+	font-weight: 900;
+	color: #ffffff;
+	position: relative;
+}
+
+.weather-map-para-text {
+	font-size: 1.5em;
+	font-weight: 900;
+	color: #ffffff;
+	position: relative;
+}
+
+.weather-map {
+	border: 10px solid white;
+	border-radius: 5px;
 }
