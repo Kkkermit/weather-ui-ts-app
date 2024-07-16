@@ -1,3 +1,4 @@
 {
-	"apiUrl": "http://api.openweathermap.org/data/2.5/weather"
+	"apiUrl": "http://api.openweathermap.org/data/2.5/weather",
+	"apiForecastUrl": "http://api.openweathermap.org/data/2.5/forecast"
 }

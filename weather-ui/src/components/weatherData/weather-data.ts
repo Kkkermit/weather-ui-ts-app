@@ -8,6 +8,18 @@ export interface WeatherData {
 	sys: { sunrise: number; sunset: number };
 }
 
+export interface ForecastData {
+	list: any;
+	dt: number;
+	main: {
+		temp: number;
+	};
+	weather: {
+		description: string;
+	}[];
+	dt_txt: any;
+}
+
 export interface WeatherDataUIProps {
 	onNewSearch: (search: string) => void;
 }
@@ -38,4 +50,25 @@ export const fetchWeatherDataFromCordsApi = async (lat: number, lon: number) => 
 	});
 
 	return response.data;
+};
+
+export const fetchForecastData = async (location: string) => {
+	const response = await axios.get<ForecastData>(`${config.apiForecastUrl}`, {
+		params: {
+			q: location,
+			...setApiParams,
+		},
+	});
+	return response.data.list;
+};
+
+export const fetchWeatherForecastFromCoordsApi = async (lat: number, lon: number) => {
+	const response = await axios.get<ForecastData>(`${config.apiForecastUrl}`, {
+		params: {
+			lat,
+			lon,
+			...setApiParams,
+		},
+	});
+	return response.data.list;
 };
