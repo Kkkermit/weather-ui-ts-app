@@ -316,6 +316,46 @@
 	margin-bottom: 5rem;
 }
 
+.weather-overview-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 5rem;
+	margin-bottom: 5rem;
+}
+
+.weather-overview-text {
+	text-align: center;
+	padding: 10px;
+	position: relative;
+	border: 1px solid transparent;
+	background-color: rgba(255, 255, 255, 0.5);
+	backdrop-filter: blur(0.5px);
+	border-radius: 5px;
+	margin-bottom: 5rem;
+	width: 1000px;
+}
+
+.weather-overview-heading-text {
+	font-size: 2.5em;
+	font-weight: 900;
+	color: #ffffff;
+	position: relative;
+}
+
+.weather-overview-para-text {
+	font-size: 1.5em;
+	font-weight: 900;
+	color: #ffffff;
+	position: relative;
+}
+
+.weather-overview {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
 .weather-map-container {
 	display: flex;
 	align-items: center;

@@ -11,6 +11,7 @@ import { ForecastData, WeatherData } from "./weather-data-interface";
 import { i18n } from "../../i18n/index";
 import { getWeatherIcon } from "./weather-icons";
 import WeatherMap from "./weatherMap/weather-map";
+import WeatherWidget from "./weatherWidget/weather-widget";
 
 const WeatherDataUI: React.FC<WeatherDataUIProps> = ({ onNewSearch }) => {
 	const [inputLocation, setInputLocation] = useState("");
@@ -252,6 +253,19 @@ const WeatherDataUI: React.FC<WeatherDataUIProps> = ({ onNewSearch }) => {
 							</section>
 						</>
 					)}
+					<section className="weather-overview-section">
+						<div className="weather-overview-container">
+							<div className="weather-overview-inner-container">
+								<div className="weather-overview-text">
+									<h1 className="weather-overview-heading-text">Weather Overview</h1>
+									<p className="weather-overview-para-text">Overview of the weather in {weatherData.name}</p>
+								</div>
+								<div className="weather-overview">
+									<WeatherWidget cityId={weatherData.id} />
+								</div>
+							</div>
+						</div>
+					</section>
 					<section className="weather-map-section">
 						<div className="weather-map-container">
 							<div className="weather-map-inner-container">

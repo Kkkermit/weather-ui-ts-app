@@ -1,4 +1,5 @@
 export interface WeatherData {
+	id: number;
 	name: string;
 	weather: { description: string }[];
 	main: { temp: number; temp_min: number; temp_max: number; humidity: number };
