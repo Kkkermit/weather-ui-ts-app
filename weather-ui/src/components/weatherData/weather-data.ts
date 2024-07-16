@@ -1,24 +1,6 @@
 import axios from "axios";
 import config from "../../config/config.json";
-
-export interface WeatherData {
-	name: string;
-	weather: { description: string }[];
-	main: { temp: number; temp_min: number; temp_max: number; humidity: number };
-	sys: { sunrise: number; sunset: number };
-}
-
-export interface ForecastData {
-	list: any;
-	dt: number;
-	main: {
-		temp: number;
-	};
-	weather: {
-		description: string;
-	}[];
-	dt_txt: any;
-}
+import { ForecastData, WeatherData } from "./weather-data-interface";
 
 export interface WeatherDataUIProps {
 	onNewSearch: (search: string) => void;

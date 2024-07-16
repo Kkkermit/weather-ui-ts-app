@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react";
 import "../../styles/weather-data-ui.css";
 import {
-	ForecastData,
-	WeatherData,
 	WeatherDataUIProps,
 	fetchForecastData,
 	fetchWeatherDataFromApi,
 	fetchWeatherDataFromCordsApi,
 	fetchWeatherForecastFromCoordsApi,
 } from "./weather-data";
+import { ForecastData, WeatherData } from "./weather-data-interface";
 import { i18n } from "../../i18n/index";
 import { getWeatherIcon } from "./weather-icons";
 
@@ -235,6 +234,7 @@ const WeatherDataUI: React.FC<WeatherDataUIProps> = ({ onNewSearch }) => {
 															<p className="weather-forecast-para">Time: {forecast.dt_txt.split(" ")[1].slice(0, 5)}</p>
 															<p className="weather-forecast-para">Temperature: {forecast.main.temp}°C</p>
 															<p className="weather-forecast-para">Description: {forecast.weather[0].description}</p>
+															<br />
 														</div>
 													))}
 											</div>
