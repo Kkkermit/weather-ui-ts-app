@@ -146,16 +146,6 @@ const WeatherDataUI: React.FC<WeatherDataUIProps> = ({ onNewSearch }) => {
 		setInputLocation("");
 	};
 
-	// Fetch forecast data useEffect
-	// useEffect(() => {
-	// 	const fetchAndSetForecastData = async () => {
-	// 		const data = await fetchForecastData(location.toString());
-	// 		setForecastData(data);
-	// 	};
-
-	// 	fetchAndSetForecastData();
-	// }, [location]);
-
 	// Display if weatherData is not received
 	if (!weatherData)
 		return (
